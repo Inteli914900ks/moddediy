@@ -13073,7 +13073,9 @@ end)
 task.spawn(function()
 	local success, latestVersionInfo = pcall(function() 
 		local versionJson = game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/version")
-		return HttpService:JSONDecode(versionJson)
+		local data HttpService:JSONDecode(versionJson)
+        data.Version = data.Version .. " MODDED"
+        return data
 	end)
 
 	if success then
